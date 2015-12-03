@@ -9,7 +9,7 @@ ENV DIGILIB_VERSION_URL http://sourceforge.net/projects/digilib/files/latest/dow
 
 #RUN wget -O ${JETTY_WEBAPPS}/${DIGILIB_NAME}.war $DIGILIB_VERSION_URL
 #RUN wget -O ${JETTY_WEBAPPS}/ROOT.war $DIGILIB_VERSION_URL
-RUN wget -qO- -O tmp.war http://sourceforge.net/projects/digilib/files/latest/download && unzip tmp.war -d ROOT/ && rm tmp.war
+RUN wget -qO- -O tmp.war http://sourceforge.net/projects/digilib/files/latest/download && unzip tmp.war -d ${JETTY_WEBAPPS}/ROOT/ && rm tmp.war
 
 
 EXPOSE 8080
