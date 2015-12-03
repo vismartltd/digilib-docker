@@ -11,6 +11,7 @@ ENV DIGILIB_VERSION_URL http://sourceforge.net/projects/digilib/files/latest/dow
 #RUN wget -O ${JETTY_WEBAPPS}/ROOT.war $DIGILIB_VERSION_URL
 RUN wget -qO- -O tmp.war http://sourceforge.net/projects/digilib/files/latest/download && unzip tmp.war -d ${JETTY_WEBAPPS}/ROOT/ && rm tmp.war
 
+VOLUME ["/var/lib/jetty/webapps/ROOT/sample-images"]
 
 EXPOSE 8080
 #RUN echo "JAVA_OPTIONS='${JAVA_OPTIONS} -D${BLAZEGRAPH_PF_PARAM}=${BLAZEGRAPH_RW_PATH}'" >> /etc/default/jetty
