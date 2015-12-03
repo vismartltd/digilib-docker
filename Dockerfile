@@ -8,9 +8,10 @@ ENV DIGILIB_VERSION_URL http://sourceforge.net/projects/digilib/files/latest/dow
 #http://skylink.dl.sourceforge.net/project/digilib/releases/${DIGILIB_VERSION_MAJOR}/digilib-webapp-{DIGILIB_VERSION_MINOR}-srv3.war
 
 #RUN wget -O ${JETTY_WEBAPPS}/${DIGILIB_NAME}.war $DIGILIB_VERSION_URL
-RUN wget -O ${JETTY_WEBAPPS}/ROOT.war $DIGILIB_VERSION_URL
+#RUN wget -O ${JETTY_WEBAPPS}/ROOT.war $DIGILIB_VERSION_URL
+RUN wget -qO- -O tmp.war http://sourceforge.net/projects/digilib/files/latest/download && unzip tmp.war -d ROOT/ && rm tmp.war
+
 
 EXPOSE 8080
-
 #RUN echo "JAVA_OPTIONS='${JAVA_OPTIONS} -D${BLAZEGRAPH_PF_PARAM}=${BLAZEGRAPH_RW_PATH}'" >> /etc/default/jetty
 CMD ["jetty.sh", "run"]
