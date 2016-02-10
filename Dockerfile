@@ -11,7 +11,7 @@ ENV DIGILIB_VERSION_URL http://sourceforge.net/projects/digilib/files/releases/$
 ADD digilib-webapp-2.3-SNAPSHOT-srv3.war tmp.war
 RUN unzip -q tmp.war -d "$JETTY_WEBAPPS"/ROOT/ && rm tmp.war
 
-ADD jetty-reverseproxy.xml $JETTY_BASE/etc/jetty-reverseproxy.xml
+ADD jetty.xml $JETTY_BASE/etc/jetty.xml
 
 VOLUME ["/var/lib/jetty/webapps/ROOT/sample-images"]
 
